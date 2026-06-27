@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pèlerinage Initiatique en Inde | Au Cœur du Sacré</title>
+    <title>Sacred Pilgrimage to India | Awakening the Divine Within</title>
     <!-- Tailwind CSS for modern styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,6 +11,9 @@
         .font-serif { font-family: 'Playfair+Display', serif; }
         .font-sans { font-family: 'Plus+Jakarta+Sans', sans-serif; }
         .bg-sacred { background-color: #FAF6F0; }
+        
+        /* Language toggling logic hidden elements */
+        [lang-ch]:not(.active-lang) { display: none !important; }
     </style>
 </head>
 <body class="bg-sacred text-stone-800 font-sans antialiased">
@@ -18,31 +21,60 @@
     <!-- Header -->
     <header class="fixed top-0 left-0 w-full bg-[#FAF6F0]/90 backdrop-blur-md z-50 border-b border-stone-200/50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-lg font-serif tracking-widest uppercase text-amber-800">L'Appel de l'Inde</div>
+            <div class="text-lg font-serif tracking-widest uppercase text-amber-800">
+                <span lang-ch="en" class="active-lang">The Call of India</span>
+                <span lang-ch="fr">L'Appel de l'Inde</span>
+            </div>
+            
+            <!-- Navigation Links -->
             <nav class="hidden md:flex space-x-8 text-xs font-semibold tracking-widest uppercase text-stone-600">
-                <a href="#vision" class="hover:text-amber-700 transition">La Vision</a>
-                <a href="#itineraire" class="hover:text-amber-700 transition">Le Pèlerinage</a>
-                <a href="#rejoindre" class="hover:text-amber-700 transition">Infos</a>
+                <a href="#vision" class="hover:text-amber-700 transition">
+                    <span lang-ch="en" class="active-lang">Vision</span><span lang-ch="fr">La Vision</span>
+                </a>
+                <a href="#itinerary" class="hover:text-amber-700 transition">
+                    <span lang-ch="en" class="active-lang">The Pilgrimage</span><span lang-ch="fr">Le Pèlerinage</span>
+                </a>
+                <a href="#register" class="hover:text-amber-700 transition">
+                    <span lang-ch="en" class="active-lang">Info</span><span lang-ch="fr">Infos</span>
+                </a>
             </nav>
-            <a href="#je-minscris" class="bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded-full transition shadow-sm">
-                S'inscrire
-            </a>
+
+            <!-- Language Switcher & Register Button -->
+            <div class="flex items-center space-x-6">
+                <!-- Language Toggle Buttons -->
+                <div class="text-xs font-bold tracking-wider text-stone-500 space-x-2">
+                    <button onclick="toggleLanguage('en')" id="btn-en" class="text-amber-800 underline font-extrabold">EN</button>
+                    <span>|</span>
+                    <button onclick="toggleLanguage('fr')" id="btn-fr" class="hover:text-amber-700 transition">FR</button>
+                </div>
+                
+                <a href="#register" class="bg-amber-800 hover:bg-amber-900 text-white text-xs font-semibold uppercase tracking-widest px-5 py-3 rounded-full transition shadow-sm">
+                    <span lang-ch="en" class="active-lang">Register</span><span lang-ch="fr">S'inscrire</span>
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="pt-36 pb-20 md:pt-48 md:pb-32 px-6 max-w-4xl mx-auto text-center">
-        <span class="text-xs uppercase tracking-[0.2em] text-amber-700 font-bold block mb-4">Pèlerinage Initiatique & Retraite Spirituelle</span>
-        <h1 class="text-4xl md:text-6xl font-serif text-stone-900 mb-6 leading-tight italic">Voyage au Cœur du Féminin Sacré & des Temples d'Inde</h1>
+        <span class="text-xs uppercase tracking-[0.2em] text-amber-700 font-bold block mb-4">
+            <span lang-ch="en" class="active-lang">Initiatic Pilgrimage & Spiritual Retreat</span>
+            <span lang-ch="fr">Pèlerinage Initiatique & Retraite Spirituelle</span>
+        </span>
+        <h1 class="text-4xl md:text-6xl font-serif text-stone-900 mb-6 leading-tight italic">
+            <span lang-ch="en" class="active-lang">Journey into the Sacred Feminine & Temples of India</span>
+            <span lang-ch="fr">Voyage au Cœur du Féminin Sacré & des Temples d'Inde</span>
+        </h1>
         <p class="text-base md:text-lg text-stone-600 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Une immersion sacrée à la rencontre des traditions ancestrales, des cercles de méditation au bord du Gange et des rituels de dévotion. Un voyage de transformation profonde.
+            <span lang-ch="en" class="active-lang">A sacred immersion into ancestral traditions, meditation circles along the Ganges, and devotional rituals. A journey of profound inner transformation.</span>
+            <span lang-ch="fr">Une immersion sacrée à la rencontre des traditions ancestrales, des cercles de méditation au bord du Gange et des rituels de dévotion. Un voyage de transformation profonde.</span>
         </p>
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="#itineraire" class="border border-stone-300 hover:border-stone-400 text-stone-800 w-full sm:w-auto px-8 py-3.5 rounded-full text-sm font-medium transition">
-                Explorer le programme
+            <a href="#itinerary" class="border border-stone-300 hover:border-stone-400 text-stone-800 w-full sm:w-auto px-8 py-3.5 rounded-full text-sm font-medium transition">
+                <span lang-ch="en" class="active-lang">Explore Itinerary</span><span lang-ch="fr">Explorer le programme</span>
             </a>
-            <a href="#je-minscris" class="bg-amber-800 hover:bg-amber-900 text-white w-full sm:w-auto px-8 py-3.5 rounded-full text-sm font-medium shadow-md transition">
-                Réserver ma place
+            <a href="#register" class="bg-amber-800 hover:bg-amber-900 text-white w-full sm:w-auto px-8 py-3.5 rounded-full text-sm font-medium shadow-md transition">
+                <span lang-ch="en" class="active-lang">Book My Place</span><span lang-ch="fr">Réserver ma place</span>
             </a>
         </div>
     </section>
@@ -51,84 +83,115 @@
     <section id="vision" class="max-w-6xl mx-auto px-6 py-16 border-t border-stone-200/60">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-3xl font-serif text-stone-900 mb-6">L'Intention du Voyage</h2>
+                <h2 class="text-3xl font-serif text-stone-900 mb-6">
+                    <span lang-ch="en" class="active-lang">The Intent of the Journey</span><span lang-ch="fr">L'Intention du Voyage</span>
+                </h2>
                 <p class="text-stone-600 leading-relaxed mb-4">
-                    Ce pèlerinage n'est pas un simple voyage touristique. C'est une traversée intérieure conçue pour honorer votre espace sacré, ralentir et vous ouvrir à la magie dévotionnelle de l'Inde.
+                    <span lang-ch="en" class="active-lang">This pilgrimage is not a simple tourist trip. It is an inner crossing designed to honor your sacred space, slow down, and open yourself to the devotional magic of India.</span>
+                    <span lang-ch="fr">Ce pèlerinage n'est pas un simple voyage touristique. C'est une traversée intérieure conçue pour honorer votre espace sacré, ralentir et vous ouvrir à la magie dévotionnelle de l'Inde.</span>
                 </p>
                 <p class="text-stone-600 leading-relaxed">
-                    Chaque jour sera rythmé par des pratiques douces : méditations matinales, rituels d'offrandes (Puja), cercles de parole et visites de lieux hautement vibratoires.
+                    <span lang-ch="en" class="active-lang">Each day will be woven with gentle practices: morning meditations, offering rituals (Puja), sharing circles, and visits to highly vibrant spiritual sites.</span>
+                    <span lang-ch="fr">Chaque jour sera rythmé par des pratiques douces : méditations matinales, rituels d'offrandes (Puja), cercles de parole et visites de lieux hautement vibratoires.</span>
                 </p>
             </div>
+            <!-- Dynamic Image Placeholder -->
             <div class="bg-stone-200/60 aspect-[4/3] rounded-2xl flex flex-col items-center justify-center text-stone-500 p-6 text-center border border-stone-300/40">
                 <span class="text-2xl mb-2">🌅</span>
-                <p class="font-serif italic text-sm">Pratiques matinales face au lever du soleil</p>
-                <p class="text-xs text-stone-400 mt-1">[ Vous pourrez remplacer ce bloc par une belle photo ]</p>
+                <p class="font-serif italic text-sm">
+                    <span lang-ch="en" class="active-lang">Morning practices facing the sunrise</span>
+                    <span lang-ch="fr">Pratiques matinales face au lever du soleil</span>
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Itinerary Preview -->
-    <section id="itineraire" class="bg-stone-900 text-stone-100 py-20 px-6">
+    <!-- Itinerary Section -->
+    <section id="itinerary" class="bg-stone-900 text-stone-100 py-20 px-6">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-                <span class="text-amber-500 text-xs uppercase tracking-widest block mb-2">Le Cheminement</span>
-                <h2 class="text-3xl font-serif text-white">Les Étapes Sacrées</h2>
+                <span class="text-amber-500 text-xs uppercase tracking-widest block mb-2">
+                    <span lang-ch="en" class="active-lang">The Path</span><span lang-ch="fr">Le Cheminement</span>
+                </span>
+                <h2 class="text-3xl font-serif text-white">
+                    <span lang-ch="en" class="active-lang">Sacred Steps</span><span lang-ch="fr">Les Étapes Sacrées</span>
+                </h2>
             </div>
             
             <div class="space-y-12 border-l border-amber-600/30 pl-6 md:pl-10 ml-2">
                 <div class="relative">
                     <div class="absolute -left-[31px] md:-left-[47px] top-1 bg-amber-600 h-4 w-4 rounded-full ring-4 ring-stone-900"></div>
-                    <h3 class="text-xl font-serif text-amber-400">Étape 1 : L'Arrivée & L'Ancrage</h3>
-                    <p class="text-stone-400 text-sm mt-2 leading-relaxed">Accueil, cercle d'ouverture et rituels de purification pour se connecter à l'énergie de la Terre Mère.</p>
+                    <h3 class="text-xl font-serif text-amber-400">
+                        <span lang-ch="en" class="active-lang">Step 1: Arrival & Grounding</span><span lang-ch="fr">Étape 1 : L'Arrivée & L'Ancrage</span>
+                    </h3>
+                    <p class="text-stone-400 text-sm mt-2 leading-relaxed">
+                        <span lang-ch="en" class="active-lang">Welcome, opening circle, and purification rituals to connect deeply with the energy of the sacred land.</span>
+                        <span lang-ch="fr">Accueil, cercle d'ouverture et rituels de purification pour se connecter à l'énergie de la Terre Mère.</span>
+                    </p>
                 </div>
                 <div class="relative">
                     <div class="absolute -left-[31px] md:-left-[47px] top-1 bg-amber-600 h-4 w-4 rounded-full ring-4 ring-stone-900"></div>
-                    <h3 class="text-xl font-serif text-amber-400">Étape 2 : L'Éveil des Sens et des Temples</h3>
-                    <p class="text-stone-400 text-sm mt-2 leading-relaxed">Exploration des temples dédiés à la Shakti (l'énergie féminine divine) et marches méditatives.</p>
-                </div>
-                <div class="relative">
-                    <div class="absolute -left-[31px] md:-left-[47px] top-1 bg-amber-600 h-4 w-4 rounded-full ring-4 ring-stone-900"></div>
-                    <h3 class="text-xl font-serif text-amber-400">Étape 3 : Intégration & Célébration</h3>
-                    <p class="text-stone-400 text-sm mt-2 leading-relaxed">Bain rituel, méditation au coucher du soleil et cercle de clôture pour ancrer les transformations.</p>
+                    <h3 class="text-xl font-serif text-amber-400">
+                        <span lang-ch="en" class="active-lang">Step 2: Awakening the Shakti & Temples</span><span lang-ch="fr">Étape 2 : L'Éveil de la Shakti et des Temples</span>
+                    </h3>
+                    <p class="text-stone-400 text-sm mt-2 leading-relaxed">
+                        <span lang-ch="en" class="active-lang">Exploration of ancient temples dedicated to Shakti (divine feminine energy) and silent meditative walks.</span>
+                        <span lang-ch="fr">Exploration des temples dédiés à la Shakti (l'énergie féminine divine) et marches méditatives.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Registration Form Section -->
-    <section id="je-minscris" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-20">
+    <section id="register" class="max-w-3xl mx-auto px-6 py-24 scroll-mt-20">
         <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-stone-200/50 border border-stone-100">
             <div class="text-center mb-10">
-                <span class="text-amber-800 font-serif italic block mb-2">Les places sont limitées en petit groupe</span>
-                <h2 class="text-3xl font-serif text-stone-900">Demande d'Inscription</h2>
-                <p class="text-stone-500 mt-2 text-sm">Remplissez ce formulaire pour recevoir la brochure ou réserver votre entretien téléphonique d'admission.</p>
+                <span class="text-amber-800 font-serif italic block mb-2">
+                    <span lang-ch="en" class="active-lang">Spaces are strictly limited to a small group</span>
+                    <span lang-ch="fr">Les places sont limitées en petit groupe</span>
+                </span>
+                <h2 class="text-3xl font-serif text-stone-900">
+                    <span lang-ch="en" class="active-lang">Registration Request</span><span lang-ch="fr">Demande d'Inscription</span>
+                </h2>
+                <p class="text-stone-500 mt-2 text-sm">
+                    <span lang-ch="en" class="active-lang">Complete this form to receive the brochure or request your admission call.</span>
+                    <span lang-ch="fr">Remplissez ce formulaire pour recevoir la brochure ou réserver votre entretien téléphonique d'admission.</span>
+                </p>
             </div>
 
-            <!-- Formspree used for FREE backend processing. Replace with your own ID later -->
+            <!-- Formspree form link setup -->
             <form action="https://formspree.io/f/YOUR_FORMSPREE_ID_HERE" method="POST" class="space-y-6">
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">Prénom</label>
+                        <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">
+                            <span lang-ch="en" class="active-lang">First Name</span><span lang-ch="fr">Prénom</span>
+                        </label>
                         <input type="text" name="name" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 transition">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">Nom</label>
+                        <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">
+                            <span lang-ch="en" class="active-lang">Last Name</span><span lang-ch="fr">Nom</span>
+                        </label>
                         <input type="text" name="lastname" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 transition">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">Adresse Email</label>
+                    <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">Email Address</label>
                     <input type="email" name="email" required class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 transition">
                 </div>
 
                 <div>
-                    <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">Pourquoi ce pèlerinage vous appelle-t-il ?</label>
-                    <textarea name="message" rows="4" placeholder="Partagez vos motivations en quelques mots..." class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 transition"></textarea>
+                    <label class="block text-xs uppercase tracking-wider text-stone-500 font-semibold mb-2">
+                        <span lang-ch="en" class="active-lang">Why does this pilgrimage call to you?</span>
+                        <span lang-ch="fr">Pourquoi ce pèlerinage vous appelle-t-il ?</span>
+                    </label>
+                    <textarea name="message" rows="4" class="w-full px-4 py-3 bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-800/20 focus:border-amber-800 transition"></textarea>
                 </div>
 
                 <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-white font-medium uppercase tracking-widest text-xs py-4 rounded-xl transition shadow-md">
-                    Envoyer ma demande d'inscription
+                    <span lang-ch="en" class="active-lang">Submit My Request</span><span lang-ch="fr">Envoyer ma demande</span>
                 </button>
             </form>
         </div>
@@ -136,9 +199,34 @@
 
     <!-- Footer -->
     <footer class="bg-stone-100 text-stone-500 py-12 text-center text-xs tracking-wider border-t border-stone-200/60">
-        <p class="uppercase text-stone-700 font-medium mb-2">Pèlerinage au Cœur de l'Inde</p>
-        <p>© 2026 — Tous droits réservés.</p>
+        <p class="uppercase text-stone-700 font-medium mb-2">
+            <span lang-ch="en" class="active-lang">Pilgrimage into the Heart of India</span>
+            <span lang-ch="fr">Pèlerinage au Cœur de l'Inde</span>
+        </p>
+        <p>© 2026 — All rights reserved.</p>
     </footer>
 
+    <!-- Multi-Language Logic -->
+    <script>
+        function toggleLanguage(lang) {
+            // Find all toggleable elements
+            const elements = document.querySelectorAll('[lang-ch]');
+            
+            elements.forEach(el => {
+                if (el.getAttribute('lang-ch') === lang) {
+                    el.classList.add('active-lang');
+                } else {
+                    el.classList.remove('active-lang');
+                }
+            });
+
+            // Toggle button bolding/styles
+            document.getElementById('btn-en').className = lang === 'en' ? 'text-amber-800 underline font-extrabold' : 'hover:text-amber-700 transition';
+            document.getElementById('btn-fr').className = lang === 'fr' ? 'text-amber-800 underline font-extrabold' : 'hover:text-amber-700 transition';
+            
+            // Set main HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
 </html>
